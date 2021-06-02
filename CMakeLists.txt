@@ -12,13 +12,17 @@ if(WIN32) # true if windows (32 and 64 bit)
     add_compile_definitions(TV_WINDOWS)
 endif()
 add_compile_definitions(PYTORCH_VERSION=${PYTORCH_VERSION})
+if(NOT DEFINED ${CMAKE_CUDA_ARCHITECTURES})
+    set(CMAKE_CUDA_ARCHITECTURES 52 80 86)
+endif()
+message(STATUS "CUDA architectures set to ${CMAKE_CUDA_ARCHITECTURES}")
 
 set(CMAKE_CXX_EXTENSIONS OFF) # avoid gnu++11 be added to CXX flags
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_compile_definitions(TV_DEBUG)
 endif()
 # add_compile_definitions(TV_LOG_KERNEL_INFO)
-set_target_properties(tgt PROPERTIES CUDA_ARCHITECTURES "52;80;86")
+# set_target_properties(tgt PROPERTIES CUDA_ARCHITECTURES "52;80;86")
 
 find_package(Torch REQUIRED)
 # set(CMAKE_VERBOSE_MAKEFILE ON)
