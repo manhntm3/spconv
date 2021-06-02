@@ -13,7 +13,7 @@ if(WIN32) # true if windows (32 and 64 bit)
 endif()
 add_compile_definitions(PYTORCH_VERSION=${PYTORCH_VERSION})
 if(NOT DEFINED ${CMAKE_CUDA_ARCHITECTURES})
-    set(CMAKE_CUDA_ARCHITECTURES 52 75 80)
+    set(CMAKE_CUDA_ARCHITECTURES 52 70 80)
 endif()
 message(STATUS "CUDA architectures set to ${CMAKE_CUDA_ARCHITECTURES}")
 
