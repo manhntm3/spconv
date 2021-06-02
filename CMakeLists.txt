@@ -22,7 +22,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_compile_definitions(TV_DEBUG)
 endif()
 # add_compile_definitions(TV_LOG_KERNEL_INFO)
-# set_target_properties(tgt PROPERTIES CUDA_ARCHITECTURES "52;80;86")
+# set_target_properties(tgt PROPERTIES CUDA_ARCHITECTURES "52;75;80")
 
 find_package(Torch REQUIRED)
 # set(CMAKE_VERBOSE_MAKEFILE ON)
