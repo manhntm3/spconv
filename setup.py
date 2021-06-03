@@ -54,7 +54,8 @@ class CMakeBuild(build_ext):
                       '-DPYBIND11_PYTHON_VERSION={}'.format(PYTHON_VERSION),
                       '-DSPCONV_BuildTests=OFF',
                       '-DPYTORCH_VERSION={}'.format(PYTORCH_VERSION_NUMBER),
-                      '-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON'
+                      '-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON',
+                      '-arch=sm_70'
                       ] #  -arch=sm_61
         if not torch.cuda.is_available() and SPCONV_FORCE_BUILD_CUDA is None:
             cmake_args += ['-DSPCONV_BuildCUDA=OFF']
